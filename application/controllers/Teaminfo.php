@@ -17,5 +17,17 @@ class Teaminfo extends CI_Controller{
             $this->load->view('view_login',$data); 
         }
     } 
+
+    public function addTeamInfo(){
+        $this->load->model('Db_master_data');
+        $data = file_get_contents("php://input");
+        $phpArray = json_decode($data,true);
+        $response = array();
+        $response['status'] = 0;
+        
+        $this->Db_master_data->addTeamInfo($phpArray);
+
+        echo json_encode($response);
+    }
 }
 ?>

@@ -32,6 +32,7 @@
 </style>
 </head>
 <body ng-app="App" ng-controller="AppCtrl">
+	<?php echo $side_view;?>
 	<div class="container" ng-controller="quesAnsCtrl">
 		<div class="row">
 			<div style="margin-top: 50px ; padding:20px;" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">

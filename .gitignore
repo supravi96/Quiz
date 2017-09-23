@@ -1,3 +1,9 @@
+user_guide/
+contributing.md
+license.txt
+readme.rst
+composer.json
+.editorconfig
 .DS_Store
 
 application/cache/*
