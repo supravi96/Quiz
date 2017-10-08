@@ -10,8 +10,7 @@ class Login extends CI_Controller
         if(($this->session->userdata('userlogin')))
         { 
             $data['side_view'] = $this->load->view('template/sidenav',NULL,true);
-            // $data['topbar'] = $this->load->view('template/topbar',NULL,TRUE);
-            $this->load->view('view_home', $data);	
+            $this->load->view('view_teamInfo.php', $data);	
         }
         else
         {
@@ -42,6 +41,7 @@ class Login extends CI_Controller
                     }
                     $login_data = array('username' => $username ,
                                         'admin_id' => $admin_id,
+                                        'round' => 0,
                                         'userlogin' => TRUE
                                        );
                     $this->session->set_userdata($login_data);
@@ -52,6 +52,42 @@ class Login extends CI_Controller
                 }
             }
         }
+        echo json_encode($response);
+    }
+
+    public function verify_logout()
+    {
+        $data = file_get_contents("php://input");
+        $phpArray = json_decode($data,true);
+        $response = array();
+        $sesionData = array();
+        $status = 0;
+        if(isset($phpArray['logout'])){
+            // check for injection attacks
+            $logout = addslashes($phpArray['logout']);
+            if($logout==1){                
+                
+                if ($this->session->userdata('userlogin'))
+                {
+                    $admin_id = $this->session->userdata('admin_id');
+                }
+
+                $login_data = array('username'=>'','admin_id' => '','userlogin'=>'');
+           
+                $this->session->unset_userdata($login_data);
+                $this->session->sess_destroy();
+
+                $this->load->model('Db_login');
+                $this->Db_login->logout($admin_id);
+                
+                $status = 1;
+            }
+        }
+        else{
+           $status = 0;
+        }
+        
+        $response['status'] = $status;
         echo json_encode($response);
     }
 }    

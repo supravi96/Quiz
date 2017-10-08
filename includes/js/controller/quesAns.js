@@ -1,24 +1,28 @@
-app.controller('quesAnsCtrl', function($scope,$http) {
+app.controller('quesAnsCtrl', function($scope, $http) {
 
 	$scope.data = {};
 
 	/*to add questions*/
-	$scope.addQuestionData = function(){
+	$scope.addQuestionData = function() {
 		console.log($scope.data);
 		var params = angular.toJson($scope.data, true);
 		$http({
 			url: "Questionans/addQuestionData",
 			method: "POST",
 			data: params,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+			}
 		})
 		.success(function(data, webStatus, headers, config) {
 
 			console.log(data);
-			if(data.status)
+			if (data.status) {
+				$scope.data = {};
 				alert("question set added successfully.");
-			else
-				alert("question set could not be added");
+				$scope.loadAllQuestions();
+			} else
+			alert("question set could not be added");
 		})
 		.error(function(data, status, headers, config) {
 
@@ -27,17 +31,20 @@ app.controller('quesAnsCtrl', function($scope,$http) {
 	}
 
 	/*to load all added questions*/
-	$scope.loadAllQuestions = function(){
+	$scope.loadAllQuestions = function() {
 		var params = "";
 		$http({
 			url: "Questionans/loadAllQuestions",
 			method: "POST",
 			data: params,
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+			}
 		})
 		.success(function(data, webStatus, headers, config) {
 
 			console.log(data);
+			$scope.dataSet = data.data;
 		})
 		.error(function(data, status, headers, config) {
 

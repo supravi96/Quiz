@@ -1,6 +1,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>includes/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>includes/css/myStyle.css">
     <script src="<?php echo base_url();?>includes/dist/jquery-3.2.1.js"></script>
     <script src="<?php echo base_url();?>includes/dist/bootstrap.js"></script> 
     <script src="<?php echo base_url()?>includes/js/third_party/pidCrypt/compressed/pidcrypt_c.js" ></script> 

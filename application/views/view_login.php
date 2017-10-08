@@ -13,18 +13,25 @@
 							<div class="panel-title" style="text-align:center">Login</div>
 						</div>
 						<div class="panel-body" align="center">
-							<img class="img-circle" style="height:100px ; width:100px ; margin-bottom: 10px"id="img_logo" src="<?php base_url();?>includes/img/login_icon.png">
-							<form class="form-horizontal" role="form">
+							<img class="img-circle" style="height:100px ; width:100px ; margin-bottom: 10px" id="img_logo" src="<?php base_url();?>includes/img/login_icon.png">
+							<form class="form-horizontal" role="form" name="loginForm">
 								<div class="input-group" style="margin-bottom: 25px">
 									<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-									<input type="text" ng-model="userName" class="form-control" id="username" placeholder="Username" />
+									<input type="text" ng-model="userName" class="form-control" id="username" placeholder="Username" ng-required="true" name="userName"/>
 								</div>
+
 								<div class="input-group" style="margin-bottom: 25px">
-									<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-									<input type="password" ng-model="passWord" class="form-control" id="password" placeholder="Password"/>
+									<span class="input-group-addon">
+										<i class="glyphicon glyphicon-lock"></i>
+									</span>
+									<input type="password" ng-model="passWord" class="form-control" id="password" placeholder="Password" ng-required="true" ng-required="true" name="pass" />
+									<!-- <div ng-messages="loginForm.pass.$dirty && loginForm.pass.$touched">
+										<div ng-message="loginForm.pass.$error.required">
+											Password is required
+										</div>
+									</div> -->
 								</div>
-								<button class="btn btn-info btn-block login" type="submit" ng-click="login()">Login</button>
-								
+								<button class="btn btn-info btn-block login" type="submit" ng-disabled="loginForm.$invalid" ng-click="login()">Login</button>								
 							</form>
 						</div>
 						<div class="panel-footer">

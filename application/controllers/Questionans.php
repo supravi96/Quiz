@@ -9,7 +9,6 @@ class Questionans extends CI_Controller{
         if(($this->session->userdata('userlogin')))
         { 
             $data['side_view'] = $this->load->view('template/sidenav',NULL,true);
-            // $data['topbar'] = $this->load->view('template/topbar',NULL,TRUE);
             $this->load->view('view_questionAns', $data);	
         }
         else
