@@ -18,7 +18,7 @@ app.controller('loginCtrl', function($scope, $http, myAppService) {
                     })
                     .success(function(data, webStatus, headers, config) {
                         if (data.status)
-                            window.location = "Questionans";
+                            window.location = "Instructions";
                         console.log(data);
                     })
                     .error(function(data, status, headers, config) {

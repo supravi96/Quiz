@@ -73,3 +73,9 @@ fieldset.scheduler-border {
 		transform: rotate(360deg);
 	}
 }
+.rounds{
+	background-color:#b3e6ff;
+	box-shadow:0px 0px 200px #005580;
+	margin-top:100px;
+	border-radius: 15px 50px;
+}

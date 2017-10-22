@@ -17,7 +17,7 @@ class Login extends CI_Controller
             $this->load->view('view_login',$data); 
         }
     } 		
-	
+    
     public function verify_login(){
         
         $data = file_get_contents("php://input");
@@ -40,10 +40,11 @@ class Login extends CI_Controller
                         $admin_id = $row->id;
                     }
                     $login_data = array('username' => $username ,
-                                        'admin_id' => $admin_id,
-                                        'round' => 0,
-                                        'userlogin' => TRUE
-                                       );
+                        'admin_id' => $admin_id,
+                        'round' => 0,
+                        'quiz_id'=>0,
+                        'userlogin' => TRUE
+                    );
                     $this->session->set_userdata($login_data);
                 }
                 else
@@ -73,7 +74,7 @@ class Login extends CI_Controller
                 }
 
                 $login_data = array('username'=>'','admin_id' => '','userlogin'=>'');
-           
+                
                 $this->session->unset_userdata($login_data);
                 $this->session->sess_destroy();
 
@@ -85,10 +86,10 @@ class Login extends CI_Controller
         }
         else{
            $status = 0;
-        }
-        
-        $response['status'] = $status;
-        echo json_encode($response);
-    }
+       }
+       
+       $response['status'] = $status;
+       echo json_encode($response);
+   }
 }    
 ?>

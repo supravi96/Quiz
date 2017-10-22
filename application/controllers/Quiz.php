@@ -26,34 +26,24 @@ class Quiz extends CI_Controller
         $response = array();
         $response['status'] = 0;
         list($round_quests,$quiz_data,$teams) = $this->Db_quiz->loadAllQuestions();
-        if($round_quests){
+        if($round_quests&&$quiz_data&&$teams){
             $response['quiz'] = $quiz_data[0]->quiz_name.' '.date('d-m-Y',$quiz_data[0]->timestamp);
-            $response['quiz_id'] = $quiz_data[0]->id;
             $response['round_quests'] = $round_quests;
             $response['teams'] = $teams;
             $response['status'] = 1;
-           
+            
         }
 
         echo json_encode($response);
     }	
 
-    public function fetch_next_set(){
+    public function update_round(){
         $this->load->model('Db_quiz');
         $data = file_get_contents("php://input");
         $phpArray = json_decode($data,true);
         $response = array();
         $response['status'] = 0;
-        // echo $this->session->userdata('round');
         $this->session->set_userdata('round', $this->session->userdata('round')+1);
-        list($round_quests,$quiz_data,$teams) = $this->Db_quiz->loadAllQuestions();
-        if($round_quests){
-            $response['quiz'] = $quiz_data[0]->quiz_name.' '.date('d-m-Y',$quiz_data[0]->timestamp);
-            $response['round_quests'] = $round_quests;
-            $response['teams'] = $teams;
-            $response['status'] = 1;
-           
-        }
         echo json_encode($response);
     }
 
