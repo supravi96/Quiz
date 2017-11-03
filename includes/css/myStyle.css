@@ -79,3 +79,82 @@ fieldset.scheduler-border {
 	margin-top:100px;
 	border-radius: 15px 50px;
 }
+.round-table-container .table{
+	margin-bottom: 0;
+	border-bottom: 1px solid #ddd;
+}
+.round-table-container .table>tbody>tr>td{
+	line-height: 34px;
+}
+.round-table-container .submit-btn{
+	margin-top: 15px;
+}
+
+.top-margin{
+	margin-top: 25px;
+}
+.speedometer .timer{
+	display: inline-block;
+	font-size: 27px;
+	vertical-align: middle;
+	line-height: 44px;
+	padding: 0px 88px;
+	border: 1px solid #969696;
+	border-radius: 5px;
+}
+.speedometer .timer:after{
+	content:"s";
+}
+.speedometer .questions .question-container .radio{
+	display: inline;
+	margin-right: 10px;
+	font-size: 19px;
+	line-height: 20px;
+}
+.speedometer .questions .question{
+	font-size: 20px;
+	padding: 15px;
+}
+.speedometer .questions .question-container{
+	padding: 0;
+}
+.speedometer .questions .options{
+	padding: 10px 15px;
+	background-color: #ececec;
+}
+
+
+
+
+
+.situation .questions .question-container .radio{
+	display: inline;
+	margin-right: 10px;
+	font-size: 19px;
+	line-height: 20px;
+}
+.situation .questions .question{
+	font-size: 20px;
+	padding: 15px;
+}
+.situation .questions .question-container{
+	padding: 0;
+}
+.situation .questions .options{
+	padding: 10px 15px;
+	background-color: #ececec;
+}
+
+.slidecontainer{
+	width: 400px;
+}
+.slidecontainer .slider{
+	width: 65%;
+}
+.slidecontainer .score{
+	padding: 0 19px;
+	margin-left: 15px;
+	border: 1px solid #8a8a8a;
+	border-radius: 3px;
+	font-size: 17px;
+}

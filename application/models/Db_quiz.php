@@ -54,15 +54,19 @@ class Db_quiz extends CI_Model
 	}
 
 	public function get_scores(){
-		$quiz_id = $this->session->userdata('quiz_id');
+		// $quiz_id = $this->session->userdata('quiz_id');
 		$round_no = $this->session->userdata('round');
+		$quiz_id = 1;
+		
 		$this->db->select('team_name,round_no,points,rounds');
 		$this->db->from('team');
 		$this->db->join('round','team_id=team.id','inner');
 		$this->db->join('acedamic_year','acedamic_year.id=acedamic_year_id','inner');
 		$this->db->where('acedamic_year_id',$quiz_id);
 		$this->db->where('round_no',$round_no);
+		$this->db->order_by('points','desc');
 		$query = $this->db->get()->result();
+		// echo $this->db->last_query();
 		return $query;
 	}
 

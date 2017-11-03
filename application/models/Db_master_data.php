@@ -38,14 +38,6 @@ class Db_master_data extends CI_Model
             }
         }
 
-        $round = array();
-        for($j=0;$j<count($team_id);$j++){
-            for($i=0;$i<$data["rounds"];$i++){
-                $round[] = array("team_id"=>$team_id[$j],"round_no"=>$i+1);
-            }
-        }
-        $this->db->insert_batch("round",$round);
-
         return 1;
     }
 

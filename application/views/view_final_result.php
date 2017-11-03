@@ -36,7 +36,8 @@
 						</tbody>
 					</table>
 				</div>
-				<button class="btn btn-info btn-block login form-control" onclick="location.href='Instructions';" type="submit">Redirect to main menu</button>
+				<button class="btn btn-info 
+				login" onclick="location.href='Instructions';" type="submit">Redirect to main menu</button>
 			</div>
 		</div>
 	</body>

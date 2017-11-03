@@ -43,7 +43,8 @@ class Quiz extends CI_Controller
         $phpArray = json_decode($data,true);
         $response = array();
         $response['status'] = 0;
-        $this->session->set_userdata('round', $this->session->userdata('round')+1);
+        // $this->session->set_userdata('round', $this->session->userdata('round')+1);
+        $this->session->set_userdata('round', 2);
         echo json_encode($response);
     }
 
