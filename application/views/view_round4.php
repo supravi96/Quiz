@@ -28,7 +28,8 @@
                         <div class="pull-right">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" ng-model="radioValue" value="1" name="optradio">Correct
+                                    <!-- <input type="radio" ng-model="{{x.points}}" value="10" name="optradio">Correct -->
+                                    <input type="radio" ng-model="radioValue" value="10" name="optradio">Correct
                                 </label>
                             </div>
                             <div class="radio">
